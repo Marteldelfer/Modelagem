@@ -9,7 +9,6 @@ app.title = "Dashboard DW"
 app.layout = html.Div([
     sidebar.layout(),
     html.Div([
-        html.H3("Dashboard"),
         painel.layout()
     ], className="content"),
 ])
