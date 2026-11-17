@@ -1,5 +1,6 @@
 """Acesso ao DataWarehouse. Ajuste apenas a string de conexão (variável DW_URL)."""
 import os
+from pathlib import Path
 from functools import lru_cache
 
 import pandas as pd
@@ -23,4 +24,7 @@ def get_engine():
 @lru_cache(maxsize=None)
 def load_dimension(table: str) -> pd.DataFrame:
     """Carrega uma dimensão inteira (dimensões costumam ser pequenas) e mantém em cache."""
-    return pd.read_sql(f"SELECT * FROM {table}", get_engine())
+    try:
+        return pd.read_sql(f"SELECT * FROM {table}", get_engine())
+    except : # se não conseguir conectar à um banco de dados, use o do repositório
+        return pd.read_pickle(Path("dados")/f"{table}.pkl")

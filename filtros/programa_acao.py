@@ -7,7 +7,6 @@ programa_acao = HierarchicalFilter(
     key_col="key_programa",
     levels=[
         Level("funcao", "Função", "codigo_funcao", "nome_funcao"),
-        Level("subfuncao", "Subfunção", "codigo_subfuncao", "nome_subfuncao"),
         Level("programa", "Programa orçamentário", "codigo_programa_orcamentario", "nome_programa_orcamentario"),
         Level("acao", "Ação", "codigo_acao", "nome_acao"),
     ],
