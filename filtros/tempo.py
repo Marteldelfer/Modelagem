@@ -21,7 +21,7 @@ class TempoFilter:
 
     def _range(self):
         anos = self.df[self.col_ano].dropna().astype(int)
-        return int(anos.min()), int(anos.max())
+        return int(2023), int(2026)
 
     def parse(self, values) -> dict:
         (intervalo,) = values

@@ -15,4 +15,5 @@ class FuncaoSubfuncao(Grafico):
                                                         "nome_subfuncao": "Sem informação"})
         fig = px.treemap(df, path=["nome_funcao", "nome_subfuncao"], values="orcamento_atualizado")
         fig.update_traces(hovertemplate="%{label}<br>R$ %{value:,.2f} bi<extra></extra>")
+        fig.update_layout(font_size=20)
         return fig
